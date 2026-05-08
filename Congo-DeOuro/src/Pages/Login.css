@@ -1,11 +1,28 @@
 .card {
-  border-radius: 10px;
+  border: 3px solid #1a1a1a;
+  border-radius: 0px; 
+  padding: 30px;
+  background-color: #fdfdfd;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.form-control {
+  border: 2px solid #1a1a1a;
+  border-radius: 0px;
 }
 
 .btn-primary {
-  background-color: #1a1a1a;
+  background-color: #f0ad4e;
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  width: 100%;
 }
 
 .btn-primary:hover {
-  background-color: #f0ad4e;
+  background-color: #1a1a1a;
+  color: white;
 }

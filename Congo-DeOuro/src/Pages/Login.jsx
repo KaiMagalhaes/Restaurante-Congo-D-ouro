@@ -2,54 +2,38 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [usr, setUsr] = useState("");
-  const [psw, setPsw] = useState("");
-  const navegar = useNavigate();
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
   const entrar = (e) => {
     e.preventDefault();
 
-    if (usr === "admin" && psw === "123") {
-      navegar("/gerente");
-    } else if (usr === "chef" && psw === "123") {
-      navegar("/cozinha");
-    } else {
-      alert("Dados errados!");
+    if (user === "gerente" && pass === "adm123") {
+      alert("Bem-vindo, Gerente!");
+      navigate("/gerente");
+    } 
+    else if (user === "cozinha" && pass === "chef123") {
+      alert("Bom trabalho, Chef!");
+      navigate("/cozinha");
+    } 
+    else {
+      alert("Utilizador ou senha incorretos");
     }
   };
 
   return (
     <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-4 card p-4 shadow">
-          <h2 className="text-center mb-4">Acesso Staff</h2>
-          <form onSubmit={entrar}>
-            <div className="mb-3">
-              <label className="form-label">Utilizador</label>
-              <input type="text" className="form-control" value={usr} onChange={(e) => setUsr(e.target.value)} />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Senha</label>
-              <input type="password" className="form-control" value={psw} onChange={(e) => setPsw(e.target.value)} />
-            </div>
-            <button type="submit" className="btn btn-primary w-100">Entrar</button>
-          </form>
-        </div>
+      <div className="card p-4 mx-auto" style={{maxWidth: "400px"}}>
+        <h2 className="text-center">Login Congo D'Ouro</h2>
+        <form onSubmit={entrar}>
+          <input type="text" placeholder="Usuário" className="form-control mb-3" 
+            onChange={(e) => setUser(e.target.value)} />
+          <input type="password" placeholder="Senha" className="form-control mb-3" 
+            onChange={(e) => setPass(e.target.value)} />
+          <button type="submit" className="btn btn-primary w-100">Entrar</button>
+        </form>
       </div>
     </div>
   );
-
-
-  const entrar = (e) => {
-    e.preventDefault();
-    if (usr === "admin" && psw === "123") {
-      localStorage.setItem("tipo", "admin");
-      navegar("/gerente");
-    } else if (usr === "chef" && psw === "123") {
-      localStorage.setItem("tipo", "chef"); 
-      navegar("/cozinha");
-    } else {
-      alert("Dados errados!");
-    }
-  };
 }

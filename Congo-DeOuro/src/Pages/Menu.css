@@ -1,17 +1,52 @@
-.card-img-custom {
-  height: 200px;
+.menu-container {
+  padding: 30px;
+  background-color: #fcfcfc;
+}
+
+.card-prato {
+  border: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.card-prato:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 180px;
+  border-radius: 16px 16px 0 0;
   object-fit: cover;
 }
 
-.card-container {
-  transition: transform 0.2s;
+.card-title {
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-top: 10px;
 }
 
-.card-container:hover {
-  transform: scale(1.02);
-  box-shadow: 10px black;
+.preco-tag {
+  color: #f0ad4e;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-html{
-    background-color: brown;
+.btn-pedir {
+  background-color: #1a1a1a;
+  color: #f0ad4e;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-pedir:hover {
+  background-color: #333;
 }
