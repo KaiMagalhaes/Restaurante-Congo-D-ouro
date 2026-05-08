@@ -1,22 +1,18 @@
-import { createBrowserRouter, RouterProvider, Link } from "react-router-dom"
-import Menu from "./pages/Menu"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LayoutMaster from "./layouts/LayoutMaster";
+import Menu from "./pages/Menu";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div className="container mt-5">
-        <h1>Restaurante Congo D'Ouro</h1>
-        <Link to="/menu" className="btn btn-primary">Ver Menu</Link>
-      </div>
-    ),
+    element: <LayoutMaster />,
+    children: [
+      { index: true, element: <Menu /> },
+      { path: "login", element: <div>Área do Funcionário</div> },
+    ],
   },
-  {
-    path: "/menu",
-    element: <Menu />,
-  },
-])
+]);
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
