@@ -34,32 +34,30 @@ export default function Menu() {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">Cardápio Congo D'Ouro</h1>
-      <div className="d-flex justify-content-center mb-5">
+    <div className="menu-container">
+      <h1 className="menu-titulo">Cardápio Congo D'Ouro</h1>
+      <div className="mesa-selecao">
         <input 
           type="number" 
-          className="form-control w-25 text-center" 
+          className="input-mesa" 
           placeholder="Sua Mesa" 
           value={nmrMesa} 
           onChange={(e) => setNmrMesa(e.target.value)} 
         />
       </div>
-      <div className="row">
+      <div className="menu-grid">
         {lista.map((elemento) => (
-          <div key={elemento.id} className="col-md-4 mb-4">
-            <div className="card h-100 shadow-sm">
-              <img src={elemento.foto} className="card-img-top" alt={elemento.nome} style={{height: "180px", objectFit: "cover"}} />
-              <div className="card-body d-flex flex-column">
-                <div className="d-flex justify-content-between">
-                  <h5 className="card-title">{elemento.nome}</h5>
-                  <span className="badge bg-secondary mb-2">{elemento.tipo}</span>
-                </div>
-                <p className="card-text text-muted small">{elemento.desc}</p>
-                <div className="mt-auto d-flex justify-content-between align-items-center">
-                  <span className="fw-bold fs-5">{elemento.nmr}€</span>
-                  <button onClick={() => pedir(elemento)} className="btn btn-outline-primary btn-sm">Pedir</button>
-                </div>
+          <div key={elemento.id} className="menu-card">
+            <img src={elemento.foto} className="menu-foto" alt={elemento.nome} />
+            <div className="menu-info">
+              <div className="menu-header">
+                <h5 className="prato-nome">{elemento.nome}</h5>
+                <span className="prato-tipo">{elemento.tipo}</span>
+              </div>
+              <p className="prato-desc">{elemento.desc}</p>
+              <div className="menu-footer">
+                <span className="prato-preco">{elemento.nmr}€</span>
+                <button onClick={() => pedir(elemento)} className="btn-pedir">Pedir</button>
               </div>
             </div>
           </div>

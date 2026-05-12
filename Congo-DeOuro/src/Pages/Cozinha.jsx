@@ -1,45 +1,67 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Cozinha.css";
 
 export default function Cozinha() {
+
   const [pedidos, setPedidos] = useState([]);
   const nav = useNavigate();
 
+//  -------------------------------VERIFICACAO SE EH COZINHA OU N---------------------------------
   useEffect(() => {
     const role = localStorage.getItem("userRole");
+
     if (role !== "cozinha") {
-      alert("Acesso negado");
       nav("/login");
     }
 
+// ------------------------parte de busca dos pedidos---------------------------------
     const dados = JSON.parse(localStorage.getItem("listaPedidos") || "[]");
     setPedidos(dados);
-  }, []);
+  }, [nav]);
 
-  function mudar(id, st) {
-    const nova = pedidos.map(p => {
-      if (p.idPedido === id) return { ...p, estado: st };
-      return p;
-    });
+// ---------------------atualiza estado pedido--------------------------------
+  function status(id, txt) {
+    const nova = pedidos.map(p =>
+      p.idPedido === id ? { ...p, estado: txt } : p
+    );
     setPedidos(nova);
     localStorage.setItem("listaPedidos", JSON.stringify(nova));
   }
 
   return (
-    <div className="cozinha-container">
-      <h1 className="titulo-pg">Pedidos da Cozinha</h1>
-      <div className="grid-pedidos">
-        {pedidos.map(p => (
-          <div key={p.idPedido} className="card-pedido">
-            <div className="info-mesa">Mesa: {p.mesa}</div>
-            <h3 className="prato-nome">{p.nome}</h3>
-            <p className="status-texto">Status: <span>{p.estado}</span></p>
-            <div className="botoes-acao">
-              <button onClick={() => mudar(p.idPedido, "fazendo")} className="btn-preparar">Fazer</button>
-              <button onClick={() => mudar(p.idPedido, "pronto")} className="btn-pronto">Pronto</button>
+    <div className="corpo-cozinha">
+      <h2>Pedidos pendentes</h2>
+
+{/* -------------------------------PARTE DOS PEDIDOS--------------------------------- */}
+      <div className="lista-pedidos">
+        {pedidos.length === 0 ? (
+          <p>Nenhum pedido no momento</p>
+        ) : (
+          pedidos.map(p => (
+            <div key={p.idPedido} className="item-pedido">
+
+    
+              <div className="topo-pedido">
+                <span className="badge-mesa">Mesa {p.mesa}</span>
+                <small>{p.estado}</small>
+              </div>
+
+              <h4 style={{ margin: "10px 0" }}>{p.nome}</h4>
+
+        {/* ---------------------------botoes cozinha------------------------------------- */}
+              <div className="acoes">
+                <button className="btn-fazer" onClick={() => status(p.idPedido, "Preparando")}>
+                  Fazendo
+                </button>
+                <button className="btn-pronto" onClick={() => status(p.idPedido, "Pronto")}>
+                  Pronto
+                </button>
+              </div>
+
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

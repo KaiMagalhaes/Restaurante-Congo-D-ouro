@@ -1,21 +1,49 @@
-.navbar-custom {
+.navbar-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #1a1a1a;
-  padding: 20px;
-  border-bottom: 5px solid #f0ad4e;
-  text-align: center;
+  padding: 10px 20px;
+  color: white;
 }
 
-.nav-link-custom {
-  color: white !important;
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 18px;
-  padding: 5px 10px;
-  border: 1px solid transparent;
+  color: #ff9800;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.nav-link-custom:hover {
-  background-color: #f0ad4e;
-  color: #1a1a1a !important;
-  border-radius: 5px;
+.brand-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+}
+
+.links-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.links-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-logout {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.conteudo-principal {
+  padding: 20px;
 }

@@ -1,52 +1,107 @@
 .menu-container {
-  padding: 30px;
-  background-color: #fcfcfc;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.card-prato {
-  border: none;
-  border-radius: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-  margin-bottom: 25px;
+.menu-titulo {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.card-prato:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+.mesa-selecao {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-.card-img-top {
+.input-mesa {
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.menu-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.menu-foto {
+  width: 100%;
   height: 180px;
-  border-radius: 16px 16px 0 0;
   object-fit: cover;
 }
 
-.card-title {
-  font-weight: 700;
-  color: #2d2d2d;
-  margin-top: 10px;
+.menu-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.preco-tag {
-  color: #f0ad4e;
-  font-weight: bold;
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.prato-nome {
+  margin: 0;
   font-size: 1.2rem;
 }
 
+.prato-tipo {
+  background: #6c757d;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.prato-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.menu-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prato-preco {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 .btn-pedir {
-  background-color: #1a1a1a;
-  color: #f0ad4e;
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  width: 100%;
-  font-weight: 600;
-  margin-top: 15px;
-  transition: background 0.2s;
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-pedir:hover {
-  background-color: #333;
+  background: #007bff;
+  color: white;
 }
